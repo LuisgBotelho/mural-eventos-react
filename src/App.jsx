@@ -1,17 +1,16 @@
-import { Link } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
+import Cabecalho from './componentes/Cabecalho'
+import ListaEventos from './componentes/ListaEventos'
 
 function App() {
   return (
     <>
-      <header className="cabecalho">
-        <h1 className="cabecalho__titulo">
-        <Link to="/">Mural de Eventos</Link>
-        </h1>
-      </header>
-
+      <Cabecalho />
       <main className="pagina">
-        <h2>Próximos eventos</h2>
-        <p>Aqui vai a lista de eventos.</p>
+        <Routes>
+          <Route path="/" element={<ListaEventos />} />
+          <Route path="*" element={<p>Página não encontrada.</p>} />
+        </Routes>
       </main>
     </>
   )
