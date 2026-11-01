@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { formatarData } from '../utils/formatarData'
+import BotaoInteresse from './BotaoInteresse'
 
+// Recebe os dados de um evento da lista pelas props para montar o card.
 export default function CardEvento({ evento }) {
     return (
         <article className="card">
@@ -12,6 +14,7 @@ export default function CardEvento({ evento }) {
                 <time dateTime={evento.data}>{formatarData(evento.data)}</time>
             </p>
             <p>{evento.local}</p>
+            <BotaoInteresse evento={evento} />
         </article>
     )
 }
