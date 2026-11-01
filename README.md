@@ -1,16 +1,57 @@
-# React + Vite
+# Mural de Eventos do Curso
+Projeto da disciplina de Programação Web para o seminário sobre React.
+## Integrantes e apresentação
+| Integrante | Bloco principal e orientação na oficina |
+| --- | --- |
+| Luis | A definir |
+| Pedro | A definir |
+| Victor | A definir |
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Estado desta branch: live-coding
+Ponto inicial do live coding: projeto Vite com API simulada configurada.
+RF1 e RF2 ainda serão implementados; a tela inicial é a do Vite.
+A base da oficina será disponibilizada na branch start.
+## Ambiente de referência
+- Node.js: 26.13.0 LTS; npm: 11.20.0.
+- React e React DOM: 19.3.1.
+- React Router DOM: 7.18.5.
+- Vite: 8.3.5; json-server: 1.0.0-beta.15.
+- JavaScript, componentes funcionais e CSS próprio.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Instalar os pré-requisitos
+- [Node.js LTS, com npm](https://nodejs.org/pt-br/download).
+- [Git para Windows](https://git-scm.com/install/windows).
 
-## React Compiler
+```bash
+node --version
+npm --version
+git --version
+```
+## Clonar e instalar esta base
+```bash
+git clone https://github.com/LuisgBotelho/mural-eventos-react.git
+cd mural-eventos-react
+git checkout live-coding
+npm install
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Executar o projeto
+Abra dois terminais na pasta que contém package.json.
+### Terminal 1: API simulada
+```bash
+npm run api
+```
+API: http://localhost:3000/eventos
+### Terminal 2: aplicação React
+```bash
+npm run dev
+```
+Abra o endereço informado pelo Vite, normalmente http://localhost:5173.
+Se a porta estiver ocupada, use a porta indicada no terminal.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Mantenha a API e a aplicação rodando em terminais separados.
+Para encerrar cada processo, pressione Ctrl+C no terminal correspondente.
+Ao reabrir o projeto, inicie ambos novamente. Não é necessário repetir
+npm install em toda abertura, apenas em uma instalação nova ou após
+mudanças nas dependências.
