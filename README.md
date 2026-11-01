@@ -23,6 +23,8 @@ A base da oficina será disponibilizada na branch start.
 - [Node.js LTS, com npm](https://nodejs.org/pt-br/download).
 - [Git para Windows](https://git-scm.com/install/windows).
 
+Abra um terminal novo no VS Code, PowerShell ou Git Bash e confira:
+
 ```bash
 node --version
 npm --version
@@ -35,6 +37,10 @@ cd mural-eventos-react
 git checkout live-coding
 npm install
 ```
+
+Selecione a branch antes de instalar as dependências. npm install obtém
+React, Vite, React Router e json-server definidos pelo projeto.
+Não precisa executar npm create vite dentro do clone: o projeto já existe.
 
 ## Executar o projeto
 Abra dois terminais na pasta que contém package.json.
