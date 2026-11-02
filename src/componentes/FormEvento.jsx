@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { API_URL } from '../api'
 import { CATEGORIAS } from '../categorias'
 
 const FORM_INICIAL = {
@@ -46,44 +44,15 @@ function validar(form) {
 }
 
 export default function FormEvento() {
-  const navigate = useNavigate()
   const [form, setForm] = useState(FORM_INICIAL)
   const [tentouEnviar, setTentouEnviar] = useState(false)
-  const [enviando, setEnviando] = useState(false)
-  const [erroEnvio, setErroEnvio] = useState(null)
 
-  // Após tentar enviar, as mensagens acompanham a correção de cada campo.
   const erros = tentouEnviar ? validar(form) : {}
-
-  // O name indica qual campo mudar. O spread cria um novo objeto para o estado.
   const atualizar = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
-  async function enviar(e) {
+  function enviar(e) {
     e.preventDefault()
-    setTentouEnviar(true)
-    if (Object.keys(validar(form)).length > 0) return
-
-    setEnviando(true)
-    setErroEnvio(null)
-    try {
-      const resposta = await fetch(API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...form,
-          titulo: form.titulo.trim(),
-          descricao: form.descricao.trim(),
-          local: form.local.trim(),
-        }),
-      })
-      if (!resposta.ok) throw new Error(`Erro HTTP ${resposta.status}`)
-      navigate('/') // a lista busca os eventos de novo ao ser exibida
-    } catch {
-      setErroEnvio(
-        'Não foi possível salvar o evento. Verifique se a API está em execução e tente novamente.',
-      )
-      setEnviando(false)
-    }
+    setTentouEnviar(true) // neste passo só conferimos os campos; ainda não há POST
   }
 
   return (
@@ -179,14 +148,8 @@ export default function FormEvento() {
           )}
         </div>
 
-        {erroEnvio && (
-          <p className="mensagem mensagem--erro" role="alert">
-            {erroEnvio}
-          </p>
-        )}
-
-        <button type="submit" className="botao" disabled={enviando}>
-          {enviando ? 'Salvando…' : 'Cadastrar evento'}
+        <button type="submit" className="botao">
+          Cadastrar evento
         </button>
       </form>
     </section>
