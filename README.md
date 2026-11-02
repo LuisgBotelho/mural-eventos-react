@@ -80,7 +80,7 @@ só precisa ser repetido em uma instalação nova ou após mudanças nas depend�
 | `main` | Versão principal, que recebe as etapas revisadas e reunirá a solução final. | Em desenvolvimento. |
 | `live-coding` | Ponto de partida da demonstração, com ambiente, API, roteamento e CSS preparados. | Preparada, sem RF1 e RF2. |
 | `start` | Base da oficina: listagem de eventos (RF1), busca e filtro por categoria (RF2), com componentes vazios para as próximas atividades. | RF1 e RF2 concluídos. |
-| `checkpoint-1` | Base da oficina mais o cadastro de eventos (RF3). | Planejada. |
+| `checkpoint-1` | Base da oficina mais o cadastro de eventos (RF3). | Concluída. |
 | `checkpoint-2` | Cadastro e página de detalhes (RF3 e RF4). | Planejada. |
 | `checkpoint-3` | Cadastro, detalhes e interesses compartilhados (RF3, RF4 e RF5). | Planejada. |
 
@@ -97,3 +97,10 @@ a oficina. Cada uma terá a solução acumulada até aquele ponto.
 
 A divisão dos blocos e a participação na oficina serão definidas pelo grupo
 antes da entrega.
+
+## Fontes e adaptações
+
+- Enunciado do seminário de React fornecido pelo professor.
+- Organização e código adaptados de
+  [TrabalhoWEBexemplo, de Vitor](https://github.com/vitorHBF12/TrabalhoWEBexemplo).
+- [Documentação do React](https://react.dev/learn).
