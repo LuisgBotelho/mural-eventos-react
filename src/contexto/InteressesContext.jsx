@@ -28,6 +28,7 @@ export function InteressesProvider({ children }) {
 }
 
 // Provider e hook ficam juntos para facilitar a oficina.
+// eslint-disable-next-line react-refresh/only-export-components
 export function useInteresses() {
   const contexto = useContext(InteressesContext)
 
