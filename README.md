@@ -81,7 +81,7 @@ só precisa ser repetido em uma instalação nova ou após mudanças nas depend�
 | `live-coding` | Ponto de partida da demonstração, com ambiente, API, roteamento e CSS preparados. | Preparada, sem RF1 e RF2. |
 | `start` | Base da oficina: listagem de eventos (RF1), busca e filtro por categoria (RF2), com componentes vazios para as próximas atividades. | RF1 e RF2 concluídos. |
 | `checkpoint-1` | Base da oficina mais o cadastro de eventos (RF3). | Concluída. |
-| `checkpoint-2` | Cadastro e página de detalhes (RF3 e RF4). | Planejada. |
+| `checkpoint-2` | Cadastro e página de detalhes (RF3 e RF4). | Concluída. |
 | `checkpoint-3` | Cadastro, detalhes e interesses compartilhados (RF3, RF4 e RF5). | Planejada. |
 
 As branches de checkpoint serão disponibilizadas para apoiar a turma durante
