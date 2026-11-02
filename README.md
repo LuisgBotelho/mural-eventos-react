@@ -93,7 +93,7 @@ a oficina. Cada uma terá a solução acumulada até aquele ponto.
 | --- | --- |
 | Luis | A definir |
 | Pedro | A definir |
-| Victor | A definir |
+| Vitor | A definir |
 
 A divisão dos blocos e a participação na oficina serão definidas pelo grupo
 antes da entrega.
