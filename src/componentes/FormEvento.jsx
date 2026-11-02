@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { API_URL } from '../api'
 import { CATEGORIAS } from '../categorias'
 
 const FORM_INICIAL = {
@@ -20,45 +22,68 @@ function hoje() {
 // Cada campo inválido ganha uma mensagem. Sem mensagens, o formulário está válido.
 function validar(form) {
   const erros = {}
-
   if (form.titulo.trim().length < 5) {
     erros.titulo = 'O título é obrigatório e deve ter pelo menos 5 caracteres.'
   }
-
   if (!form.data) {
     erros.data = 'Informe a data do evento.'
   } else if (form.data <= hoje()) {
     // aaaa-mm-dd pode ser comparado como texto
     erros.data = 'A data deve ser futura.'
   }
-
   if (!form.local.trim()) {
     erros.local = 'Informe o local do evento.'
   }
-
   if (!CATEGORIAS.includes(form.categoria)) {
     erros.categoria = 'Escolha uma categoria.'
   }
-
   return erros
 }
 
 export default function FormEvento() {
+  const navigate = useNavigate()
   const [form, setForm] = useState(FORM_INICIAL)
   const [tentouEnviar, setTentouEnviar] = useState(false)
+  const [enviando, setEnviando] = useState(false)
+  const [erroEnvio, setErroEnvio] = useState(null)
 
+  // Após tentar enviar, as mensagens acompanham a correção de cada campo.
   const erros = tentouEnviar ? validar(form) : {}
+
+  // O name indica qual campo mudar. O spread cria um novo objeto para o estado.
   const atualizar = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
-  function enviar(e) {
+  async function enviar(e) {
     e.preventDefault()
-    setTentouEnviar(true) // neste passo só conferimos os campos; ainda não há POST
+    setTentouEnviar(true)
+    if (Object.keys(validar(form)).length > 0) return
+
+    setEnviando(true)
+    setErroEnvio(null)
+    try {
+      const resposta = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...form,
+          titulo: form.titulo.trim(),
+          descricao: form.descricao.trim(),
+          local: form.local.trim(),
+        }),
+      })
+      if (!resposta.ok) throw new Error(`Erro HTTP ${resposta.status}`)
+      navigate('/') // a lista busca os eventos de novo ao ser exibida
+    } catch {
+      setErroEnvio(
+        'Não foi possível salvar o evento. Verifique se a API está em execução e tente novamente.',
+      )
+      setEnviando(false)
+    }
   }
 
   return (
     <section aria-labelledby="titulo-form">
       <h2 id="titulo-form">Novo evento</h2>
-
       {/* noValidate permite mostrar as mensagens de validação de cada campo. */}
       <form className="formulario" onSubmit={enviar} noValidate>
         <div className="campo">
@@ -148,8 +173,14 @@ export default function FormEvento() {
           )}
         </div>
 
-        <button type="submit" className="botao">
-          Cadastrar evento
+        {erroEnvio && (
+          <p className="mensagem mensagem--erro" role="alert">
+            {erroEnvio}
+          </p>
+        )}
+
+        <button type="submit" className="botao" disabled={enviando}>
+          {enviando ? 'Salvando…' : 'Cadastrar evento'}
         </button>
       </form>
     </section>
