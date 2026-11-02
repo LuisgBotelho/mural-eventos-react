@@ -1,4 +1,14 @@
-// RF4: buscar o evento pelo id da URL e mostrar seus dados na oficina.
+import { Link, useParams } from 'react-router-dom'
+
+// Primeiro ligamos a rota. A consulta à API entra no próximo commit.
 export default function DetalheEvento() {
-  return null
+  const { id } = useParams()
+
+  return (
+    <section>
+      <h2>Detalhes do evento</h2>
+      <p>Identificador recebido pela rota: {id}</p>
+      <Link to="/">Voltar</Link>
+    </section>
+  )
 }

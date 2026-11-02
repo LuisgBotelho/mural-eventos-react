@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import Cabecalho from './componentes/Cabecalho'
 import ListaEventos from './componentes/ListaEventos'
 import FormEvento from './componentes/FormEvento'
+import DetalheEvento from './componentes/DetalheEvento'
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
           <Route path="/" element={<ListaEventos />} />
           {/* RF3: rota do cadastro de eventos. */}
           <Route path="/eventos/novo" element={<FormEvento />} />
-          {/* RF4: criar a rota /eventos/:id para os detalhes no checkpoint 2. */}
+          <Route path="/eventos/:id" element={<DetalheEvento />} />
           <Route path="*" element={<p>Página não encontrada.</p>} />
         </Routes>
       </main>
