@@ -91,16 +91,9 @@ a oficina. Cada uma terá a solução acumulada até aquele ponto.
 
 | Integrante | Bloco principal e orientação na oficina |
 | --- | --- |
-| Luis | A definir |
-| Pedro | A definir |
-| Vitor | A definir |
+| Luis | Abertura, live coding e oficina (Checkpoint 1) |
+| Pedro | Fundamentos e oficina (Checkpoint 3) |
+| Vitor | Fundamentos e oficina (Checkpoint 2) |
 
 A divisão dos blocos e a participação na oficina serão definidas pelo grupo
 antes da entrega.
-
-## Fontes e adaptações
-
-- Enunciado do seminário de React fornecido pelo professor.
-- Organização e código adaptados de
-  [TrabalhoWEBexemplo, de Vitor](https://github.com/vitorHBF12/TrabalhoWEBexemplo).
-- [Documentação do React](https://react.dev/learn).
