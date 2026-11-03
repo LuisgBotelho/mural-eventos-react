@@ -95,12 +95,4 @@ a oficina. Cada uma terá a solução acumulada até aquele ponto.
 | Pedro | A definir |
 | Victor | A definir |
 
-A divisão dos blocos e a participação na oficina serão definidas pelo grupo
-antes da entrega.
-
-## Fontes e adaptações
-
-- Enunciado do seminário de React fornecido pelo professor.
-- Organização e código adaptados de
-  [TrabalhoWEBexemplo, de Vitor](https://github.com/vitorHBF12/TrabalhoWEBexemplo).
-- [Documentação do React](https://react.dev/learn).
+A divisão dos blocos e a participação na oficina serão definidas pelo grupo antes da entrega.
